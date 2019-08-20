@@ -25,29 +25,23 @@ describe("<Display />", () => {
 
   it("should display 'Locked' if the 'locked' prop is true", () => {
     const { getByText } = render(<Display locked={true} />);
-    expect(getByText(/locked/i)).toBeTruthy();
+    expect(getByText('Locked')).toBeTruthy();
   });
 
   it("should display 'Unlocked' if the 'locked' prop is false", () => {
     const { getByText } = render(<Display locked={false} />);
-    expect(getByText(/unlocked/i)).toBeTruthy();
+    expect(getByText('Unlocked')).toBeTruthy();
   });
 
   it("should use 'red-led' class when 'locked' or 'closed'", () => {
     const { getByText } = render(<Display locked={true} closed={true} />);
-    expect(getByText(/locked/i)).toHaveClass("red-led");
+    expect(getByText('Locked')).toHaveClass("red-led");
     expect(getByText(/closed/i)).toHaveClass("red-led");
   });
 
   it("should use 'green-led' class when 'unlocked' or 'open'", () => {
     const { getByText } = render(<Display locked={false} closed={false} />);
-    expect(getByText(/unlocked/i)).toHaveClass("green-led");
+    expect(getByText('Unlocked')).toHaveClass("green-led");
     expect(getByText(/open/i)).toHaveClass("green-led");
   });
 });
-
-// displays if gate is open/closed and if it is locked/unlocked
-//displays 'Closed' if the 'closed' prop is true and 'Open' if otherwise
-//displays 'Locked' if the 'locked' prop is 'true' and 'Unlocked' otherwise
-//when 'locked' or 'closed' use the 'red-led' class
-//when 'unlocked' or 'open' use the 'green-led' class
