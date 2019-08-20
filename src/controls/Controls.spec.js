@@ -24,7 +24,11 @@ describe("<Controls />", () => {
     expect(getByText(/open gate/i));
   });
 
-  
+  it("should display buttons for lock gate and open gate if state is unlocked and closed", () => {
+    const { getByText } = render(<Controls locked={false} closed={true} />);
+    expect(getByText(/lock gate/i));
+    expect(getByText(/open gate/i));
+  })
 });
 
 //button's text changes to reflect state
