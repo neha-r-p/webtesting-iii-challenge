@@ -14,30 +14,36 @@ describe("<Display />", () => {
   });
 
   it("should display 'Closed' if the 'closed' prop is true", () => {
-     const { getByText } = render(<Display closed={true} />);
-     expect(getByText(/closed/i)).toBeTruthy()
-  })
+    const { getByText } = render(<Display closed={true} />);
+    expect(getByText(/closed/i)).toBeTruthy();
+  });
 
   it("should display 'Open' if the 'closed' prop is false", () => {
     const { getByText } = render(<Display closed={false} />);
-    expect(getByText(/open/i)).toBeTruthy()
- })
+    expect(getByText(/open/i)).toBeTruthy();
+  });
 
- it("should display 'Locked' if the 'locked' prop is true", () => {
+  it("should display 'Locked' if the 'locked' prop is true", () => {
     const { getByText } = render(<Display locked={true} />);
-    expect(getByText(/locked/i)).toBeTruthy()
- })
+    expect(getByText(/locked/i)).toBeTruthy();
+  });
 
- it("should display 'Unlocked' if the 'locked' prop is false", () => {
+  it("should display 'Unlocked' if the 'locked' prop is false", () => {
     const { getByText } = render(<Display locked={false} />);
-    expect(getByText(/unlocked/i)).toBeTruthy()
- })
+    expect(getByText(/unlocked/i)).toBeTruthy();
+  });
 
   it("should use 'red-led' class when 'locked' or 'closed'", () => {
-      const { getByText } = render(<Display locked={true} closed={true} />)
-      expect(getByText(/locked/i)).toHaveClass('red-led');
-      expect(getByText(/closed/i)).toHaveClass('red-led')
-  })
+    const { getByText } = render(<Display locked={true} closed={true} />);
+    expect(getByText(/locked/i)).toHaveClass("red-led");
+    expect(getByText(/closed/i)).toHaveClass("red-led");
+  });
+
+  it("should use 'green-led' class when 'unlocked' or 'open'", () => {
+    const { getByText } = render(<Display locked={false} closed={false} />);
+    expect(getByText(/unlocked/i)).toHaveClass("green-led");
+    expect(getByText(/open/i)).toHaveClass("green-led");
+  });
 });
 
 // displays if gate is open/closed and if it is locked/unlocked
