@@ -9,9 +9,3 @@ describe("<Dashboard />", () => {
       expect(tree.toJSON()).toMatchSnapshot();
     });
   });
-
-// describe('<Dashboard />', () => {
-//     it('should render without crashing', () => {
-
-//     })
-// })
