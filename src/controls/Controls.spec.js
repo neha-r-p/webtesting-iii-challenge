@@ -2,7 +2,7 @@ import React from "react";
 import Controls from "./Controls";
 import renderer from "react-test-renderer";
 import "@testing-library/jest-dom/extend-expect";
-import { fireEvent, render, cleanup } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 
 afterEach(cleanup);
 
